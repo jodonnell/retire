@@ -21,12 +21,16 @@
 window.onload = function () {
 
     var time = new Time();
+    var bankAccount = new BankAccount();
+
     var last = Date.now();
     window.setInterval(function () {
         var now = Date.now();
-        time.tick(now - last);
+        time.tick();
+        bankAccount.deposit(3210 / 365);
         last = now;
-    }, 16);
+    }, 1000);
 
     ReactDOM.render(<TimerView time={time}/>, document.getElementById('time'));
+    ReactDOM.render(<BankAccountView bankAccount={bankAccount}/>, document.getElementById('bankAccount'));
 }

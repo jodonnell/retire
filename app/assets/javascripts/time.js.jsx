@@ -4,11 +4,11 @@ class Time {
     }
 
     tick (timeElapsed) {
-        this.time += timeElapsed;
+        this.time += 1;
     }
 
     toDays() {
-        return Math.round(this.time / 1000);
+        return Math.round(this.time);
     }
 
     toCurrentDate() {
