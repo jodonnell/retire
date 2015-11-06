@@ -11,7 +11,8 @@ class BankAccount {
         this._amount = amount;
     }
 
-    deposit(amount) {
-        this._amount += amount;
+    deposit(debit) {
+        $(document).trigger('debit', [debit]);
+        this._amount += debit.amount();
     }
 }
