@@ -16,10 +16,10 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require lodash
 //= require_tree .
 
-window.onload = function () {
-
+function setup() {
     var time = new Time();
     var income = new Income(3210 / 365);
     var bankAccount = new BankAccount();
@@ -40,7 +40,7 @@ window.onload = function () {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    $(document).on('debit', (event, debit) => {
+    $(document).on('debit', (event, bankAccount, debit) => {
         let rounded = Math.round(debit.amount() * 100) / 100;
         let newDebit = $(`<div class="debit">${debit.description()} $${rounded}</div>`).appendTo('#debits');
 
@@ -51,4 +51,5 @@ window.onload = function () {
         newDebit.css('top', top);
         newDebit.fadeIn(300).delay(500).fadeOut(800);
     })
+
 }
