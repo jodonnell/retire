@@ -39,6 +39,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'teaspoon'
   gem "teaspoon-jasmine"
+  gem 'guard'
+  gem "guard-teaspoon"
+
 end
 
 group :development do
