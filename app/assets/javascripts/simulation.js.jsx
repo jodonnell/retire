@@ -3,7 +3,8 @@ class Simulation {
         this._time = new Time();
         this._income = new ReoccuringTransaction(new Transaction(3210 / 52.1429 * 2, 'Income'), 'biweekly');
         this._rent = new ReoccuringTransaction(new Transaction(-60, 'Rent'), 'monthly');
-        this._reoccuring = [this._income, this._rent];
+        let food = new ReoccuringTransaction(new Transaction(-1, 'Food'), 'daily');
+        this._reoccuring = [this._income, this._rent, food];
         this._bankAccount = new BankAccount();
         //$(document).on('debit', (event, bankAccount, debit) => { this.onDebit(bankAccount, debit) })
     }
