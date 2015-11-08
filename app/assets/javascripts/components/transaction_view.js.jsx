@@ -6,8 +6,8 @@ var TransactionView = React.createClass({
     onDebit: function(bankAccount, debit) {
         let rounded = Math.round(debit.amount * 100) / 100;
         let abs = Math.abs(rounded);
-        let size = (Math.log(((abs - 60) + 1)) + 1) * 20;
 
+        let size = this.size(abs);
         let $temp = $(`<div class="transaction" style="visiblity: hidden;">${debit.description} $${abs}</div>`).appendTo('#transactions')
         $temp.css('font-size', size);
         let left = this.getRandomIntInclusive(0, $(window).width() - $temp.width());
@@ -17,6 +17,17 @@ var TransactionView = React.createClass({
         var transaction = {description: debit.description, abs: abs, withdrawl: this.withdrawl(rounded), style: {left: left, top: top, fontSize: size}};
         this.state.transactions.push(transaction)
         this.setState({transactions: this.state.transactions})
+    },
+
+    size: function (abs) {
+        let oldMax = 200;
+        let oldMin = 0;
+        let newMax = 50;
+        let newMin = 10;
+
+        let oldRange = oldMax - oldMin;
+        let newRange = newMax - newMin;
+        return (((abs - oldMin) * newRange) / oldRange) + newMin;
     },
 
     withdrawl: function (rounded) {
