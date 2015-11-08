@@ -13,11 +13,11 @@ describe(BankAccount, function() {
         expect(bankAccount.amount).toBe(100);
     });
 
-    it("you can deposit some money", function() {
+    it("you can transact some money", function() {
         var spyEvent = spyOnEvent(document, 'debit');
 
         var debit = new Transaction(100, 'test');
-        bankAccount.deposit(debit)
+        bankAccount.transact(debit)
         expect(bankAccount.amount).toBe(100);
 
         expect('debit').toHaveBeenTriggeredOnAndWith(document, [bankAccount, debit]);

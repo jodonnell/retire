@@ -14,9 +14,14 @@ describe(Simulation, function() {
 
     it("will increase the day on a tick", function() {
         var spy = sinon.spy(simulation.time, "tick");
-        var bankAccountSpy = sinon.spy(simulation.bankAccount, "deposit");
         simulation.tick();
         expect(spy.called).toBeTruthy();
-        expect(bankAccountSpy.calledWith(simulation.income));
+    });
+
+    it("will pay rent on the first of the month", function() {
+        var bankAccountSpy = sinon.spy(simulation.bankAccount, "transact");
+        var stub = sinon.stub(simulation._rent, "shouldActivate", function () { return true; });
+        simulation.tick();
+        expect(bankAccountSpy.calledWith(simulation._rent.transaction)).toBeTruthy();
     });
 });

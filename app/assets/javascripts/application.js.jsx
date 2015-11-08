@@ -24,8 +24,9 @@ function setup() {
 
     window.setInterval(function () {
         simulation.tick();
-    }, 1000);
+    }, 10);
 
     ReactDOM.render(<TimerView time={simulation.time}/>, document.getElementById('time'));
     ReactDOM.render(<BankAccountView bankAccount={simulation.bankAccount}/>, document.getElementById('bankAccount'));
+    ReactDOM.render(<TransactionView />, document.getElementById('transactions'));
 }

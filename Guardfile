@@ -18,6 +18,7 @@
 guard :teaspoon do
   # Implementation files
   watch(%r{^app/assets/javascripts/(.+).js}) { |m| "#{m[1]}_spec" }
+  watch(%r{^app/assets/javascripts/(.+).js.jsx}) { |m| "#{m[1]}_spec" }
 
   # Specs / Helpers
   watch(%r{^spec/javascripts/(.*)})
