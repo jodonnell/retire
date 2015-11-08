@@ -3,8 +3,8 @@ var TransactionView = React.createClass({
         return {transactions: []};
     },
 
-    onDebit: function(bankAccount, debit) {
-        let rounded = Math.round(debit.amount * 100) / 100;
+    onDebit: function(bankAccount, debit, inflationPercent) {
+        let rounded = Math.round(debit.amount(inflationPercent) * 100) / 100;
         let abs = Math.abs(rounded);
 
         let size = this.size(abs);
@@ -43,7 +43,7 @@ var TransactionView = React.createClass({
     },
 
     componentDidMount: function() {
-        $(document).on('debit', (event, bankAccount, debit) => { this.onDebit(bankAccount, debit) })
+        $(document).on('debit', (event, bankAccount, debit, inflationPercent) => { this.onDebit(bankAccount, debit, inflationPercent) })
         $("#transactions").on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", '.transaction', e => { this.remove(e)});
     },
 

@@ -3,16 +3,12 @@ class BankAccount {
         this._amount = 0;
     }
 
-    get amount () {
+    amount() {
         return this._amount;
     }
 
-    set amount (amount) {
-        this._amount = amount;
-    }
-
-    transact(debit) {
-        $(document).trigger('debit', [this, debit]);
-        this._amount += debit.amount;
+    transact(debit, inflation) {
+        $(document).trigger('debit', [this, debit, inflation]);
+        this._amount += debit.amount(inflation);
     }
 }

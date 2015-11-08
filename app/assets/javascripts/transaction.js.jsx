@@ -4,8 +4,8 @@ class Transaction {
         this._description = description;
     }
 
-    get amount() {
-        return this._amount;
+    amount(inflationPercent) {
+        return this._amount * inflationPercent;
     }
 
     get description() {

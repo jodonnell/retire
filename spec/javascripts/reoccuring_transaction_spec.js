@@ -1,4 +1,4 @@
-describe(ReoccuringTransaction, function() {
+describe("ReoccuringTransaction", function() {
     var transaction;
     beforeEach(function () {
         transaction = new Transaction(100, 'Income');
