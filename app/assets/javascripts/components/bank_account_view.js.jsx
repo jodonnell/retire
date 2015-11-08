@@ -12,10 +12,14 @@ var BankAccountView = React.createClass({
         clearInterval(this.interval);
     },
     render: function() {
+        let rounded = Math.round(this.state.money * 100) / 100;
+        let cssClass = 'money';
+        if (rounded < 0)
+            cssClass += ' negative';
         return (
             <div>
                 <div>Account:
-                     <span className="money">${Math.round(this.state.money * 100) / 100}</span>
+                    <span className={cssClass}>${rounded}</span>
                 </div>
             </div>
         );
