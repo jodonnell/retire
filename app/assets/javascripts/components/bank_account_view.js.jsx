@@ -1,6 +1,6 @@
 var BankAccountView = React.createClass({
     getInitialState: function() {
-        return {money: this.props.bankAccount.amount};
+        return {money: this.props.bankAccount.amount()};
     },
 
     tick: function() {

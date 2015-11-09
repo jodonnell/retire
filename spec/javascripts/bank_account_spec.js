@@ -3,7 +3,7 @@ describe("BankAccount", function() {
     var inflation;
     beforeEach(function () {
         bankAccount = new BankAccount(0);
-        inflation = new Inflation();
+        inflation = new Inflation(new Date(1950, 0, 1));
     });
 
     it("has an amount", function() {

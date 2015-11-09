@@ -1,11 +1,13 @@
 class Inflation {
-    constructor() {
+    constructor(startDate) {
+        this._startDate = startDate;
     }
 
     forDate(date) {
-        let dateDiff = this.dayDiff(new Date(1950, 0, 1), date);
-        let perDay = 0.0182 / 365;
-        return dateDiff * perDay + 1;
+        let startingCost = inflationData[this._startDate.getFullYear()][this._startDate.getMonth()];
+        let endingCost = inflationData[date.getFullYear()][date.getMonth()];
+        let multiplier = 1 / startingCost;
+        return multiplier * endingCost;
     }
 
     dayDiff(first, second) {
