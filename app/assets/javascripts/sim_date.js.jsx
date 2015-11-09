@@ -4,11 +4,11 @@ class SimDate {
     }
 
     get year() {
-				return this._date.getFullYear();
+        return this._date.getFullYear();
     }
 
     get day() {
-				return this._date.getDate();
+        return this._date.getDate();
     }
 
     set day(newDay) {
@@ -16,7 +16,7 @@ class SimDate {
     }
 
     get month() {
-				return this._date.getMonth() + 1;
+        return this._date.getMonth() + 1;
     }
 
     get time() {

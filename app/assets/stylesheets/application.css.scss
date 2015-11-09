@@ -45,11 +45,11 @@
 
     font-size: 50px;
     .money {
-		  color: green;
+      color: green;
       &.negative {
         color: red;
       }
-	  }
+    }
   }
 
   #transactions {
