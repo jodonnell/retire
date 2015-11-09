@@ -1,9 +1,9 @@
 var TimerView = React.createClass({
     getInitialState: function() {
-        return {date: this.props.time.toCurrentDate().toDateString()};
+        return {date: this.props.time.toCurrentDate().dateString()};
     },
     tick: function() {
-        this.setState({date: this.props.time.toCurrentDate().toDateString()});
+        this.setState({date: this.props.time.toCurrentDate().dateString()});
     },
     componentDidMount: function() {
         this.interval = setInterval(this.tick, 1000);

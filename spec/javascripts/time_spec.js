@@ -1,4 +1,4 @@
-describe(Time, function() {
+describe("Time", function() {
     var time;
     beforeEach(function () {
         time = new Time();
@@ -12,8 +12,8 @@ describe(Time, function() {
 
     it("has a current date", function() {
         time.tick();
-        expect(time.toCurrentDate()).toEqual(new Date(1950, 0, 2));
+        expect(time.toCurrentDate()).toEqual(new SimDate(1950, 1, 2));
         _.times(365, time.tick, time);
-        expect(time.toCurrentDate()).toEqual(new Date(1951, 0, 2));
+        expect(time.toCurrentDate()).toEqual(new SimDate(1951, 1, 2));
   });
 });

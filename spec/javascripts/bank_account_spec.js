@@ -3,7 +3,7 @@ describe("BankAccount", function() {
     var inflation;
     beforeEach(function () {
         bankAccount = new BankAccount(0);
-        inflation = new Inflation(new Date(1950, 0, 1));
+        inflation = new Inflation(SimDate.startDate());
     });
 
     it("has an amount", function() {
@@ -14,7 +14,7 @@ describe("BankAccount", function() {
         var spyEvent = spyOnEvent(document, 'debit');
 
         var debit = new Transaction(100, 'test');
-        var inflationPercent = inflation.forDate(new Date(1950, 0, 1));
+        var inflationPercent = inflation.forDate(SimDate.startDate());
         bankAccount.transact(debit, inflationPercent);
         expect(bankAccount.amount()).toBe(100);
 

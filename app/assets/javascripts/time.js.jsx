@@ -12,8 +12,8 @@ class Time {
     }
 
     toCurrentDate() {
-        let currentDate = new Date(1950, 0, 1);
-        currentDate.setDate(currentDate.getDate() + this.toDays());
+        let currentDate = SimDate.startDate();
+        currentDate.day = currentDate.day + this.toDays();
         return currentDate;
     }
 };

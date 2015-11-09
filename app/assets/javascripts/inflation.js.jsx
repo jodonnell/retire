@@ -4,13 +4,9 @@ class Inflation {
     }
 
     forDate(date) {
-        let startingCost = inflationData[this._startDate.getFullYear()][this._startDate.getMonth()];
-        let endingCost = inflationData[date.getFullYear()][date.getMonth()];
+        let startingCost = inflationData[this._startDate.year][this._startDate.month - 1];
+        let endingCost = inflationData[date.year][date.month - 1];
         let multiplier = 1 / startingCost;
         return multiplier * endingCost;
-    }
-
-    dayDiff(first, second) {
-        return Math.round((second - first)/(1000 * 60 * 60 * 24));
     }
 }

@@ -1,7 +1,7 @@
 class Simulation {
     constructor() {
         this._time = new Time();
-        this._inflation = new Inflation(new Date(1950, 0, 1));
+        this._inflation = new Inflation(SimDate.startDate());
         this._income = new ReoccuringTransaction(new Transaction((3210 / 52.1429 * 2) * 0.78, 'Income'), 'biweekly');
         this._rent = new ReoccuringTransaction(new Transaction(-60, 'Rent'), 'monthly');
         let food = new ReoccuringTransaction(new Transaction(-1, 'Food'), 'daily');
